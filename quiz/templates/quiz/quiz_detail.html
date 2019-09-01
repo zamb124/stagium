@@ -1,12 +1,32 @@
-{% extends 'base.html' %}
+{% extends 'wrapper_profile.html' %}
 {% load i18n %}
 {% block title %}
 {{ quiz.title }}
 {% endblock %}
 
 {% block content %}
-<h2>{{ quiz.title }}</h2>
-<h3>{% trans "Category" %}: {{ quiz.category }}</h3>
+    <section class="content-header">
+        <h1>
+            <h2>{{ quiz.title }}</h2>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Домой</a></li>
+            <li class="active">{{ quiz.title }}</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <i class="fa fa-warning"></i>
+
+                        <h3 class="box-title">{% trans "Category" %}: {{ quiz.category }}</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+<h2></h2>
+<h3></h3>
 {% if quiz.single_attempt %}
   <h4>{% trans "You will only get one attempt at this quiz" %}.</h4>
 {% endif %}
@@ -16,4 +36,11 @@
 	{% trans "Start quiz" %}
   </a>
 </p>
+                        </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </section>
 {% endblock %}

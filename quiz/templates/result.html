@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "wrapper_profile.html" %}
 {% load i18n %}
 
 {% load quiz_tags %}
@@ -7,14 +7,24 @@
 {% block description %} {% trans "Exam Results for" %} {{ quiz.title }} {% endblock %}
 
 {% block content %}
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <i class="fa fa-warning"></i>
 
+                        <h3 class="box-title">{{ quiz.title }}</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
   {% if previous.answers %}
 
   <p class="muted"><small>{% trans "The previous question" %}:</small></p>
   <p>{{ previous.previous_question }}</p>
-  <p>Your answer was
+  <p>Ваш ответ:
 	<strong>
-	  {{ previous.previous_outcome|yesno:"correct,incorrect" }}
+	  {{ previous.previous_outcome|yesno:"Правильный,Не правильный" }}
 	</strong>
   </p>
   {% include 'correct_answer.html' %}
@@ -94,6 +104,12 @@
   {% endfor %}
 
   {% endif %}
-
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </section>
 
 {% endblock %}

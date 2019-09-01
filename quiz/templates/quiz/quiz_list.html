@@ -1,43 +1,73 @@
-{% extends 'base.html' %}
+{% extends 'wrapper_profile.html' %}
 {% load i18n %}
 {% block title %}{% trans "All Quizzes" %}{% endblock %}
 
 {% block content %}
-<h2>{% trans "List of quizzes" %}</h2>
+    <section class="content-header">
+        <h1>
+            <h2>{% trans "List of quizzes" %}</h2>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Домой</a></li>
+            <li class="active">{% trans "List of quizzes" %}</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <i class="fa fa-warning"></i>
+
+                        <h3 class="box-title">Доступные тесты</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+
     {% if quiz_list %}
-		<table class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped">
 
-		  <thead>
-			<tr>
-			  <th>{% trans "Title" %}</th>
-			  <th>{% trans "Category" %}</th>
-			  <th>{% trans "Exam" %}</th>
-			  <th>{% trans "Single attempt" %}</th>
-			  <th></th>
-			</tr>
-		  </thead>
+            <thead>
+            <tr>
+                <th>{% trans "Title" %}</th>
+                <th>{% trans "Category" %}</th>
+                <th>{% trans "Exam" %}</th>
+                <th>{% trans "Single attempt" %}</th>
+                <th></th>
+            </tr>
+            </thead>
 
-		  <tbody>
+            <tbody>
 
-        {% for quiz in quiz_list %}
+            {% for quiz in quiz_list %}
 
-  			<tr>
-			  <td>{{ quiz.title }}</td>
-			  <td>{{ quiz.category }}</td>
-			  <td>{{ quiz.exam_paper }}</td>
-			  <td>{{ quiz.single_attempt }}</td>
-			  <td>
-				<a href="{% url 'quiz_start_page' slug=quiz.url %}">
-				  {% trans "View details" %}
-				</a>
-			</tr>
+                <tr>
+                    <td>{{ quiz.title }}</td>
+                    <td>{{ quiz.category }}</td>
+                    <td>{{ quiz.exam_paper }}</td>
+                    <td>{{ quiz.single_attempt }}</td>
+                    <td>
+                        <a href="{% url 'quiz_start_page' slug=quiz.url %}">
+                            {% trans "View details" %}
+                        </a>
+                </tr>
 
-        {% endfor %}
-		  </tbody>
+            {% endfor %}
+            </tbody>
 
-		</table>
+        </table>
 
-	{% else %}
+    {% else %}
         <p>{% trans "There are no available quizzes" %}.</p>
     {% endif %}
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </section>
+
+
+
 {% endblock %}
