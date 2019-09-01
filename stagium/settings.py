@@ -40,6 +40,7 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.yahoo.YahooOpenId',
     'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.vk.VKOAuth2',
 )
 SOCIAL_AUTH_URL_NAMESPACE = 'social'##
 SOCIAL_AUTH_PIPELINE = (
@@ -53,8 +54,11 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.user.user_details',
     'social_core.pipeline.social_auth.associate_by_email',
 )
+SOCIAL_AUTH_VK_OAUTH2_KEY = '7120098'
+SOCIAL_AUTH_VK_OAUTH2_SECRET = 'Nh2nCQkDhNPVq33RjnpF'
+SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email']
 INSTALLED_APPS = [
-'social_django',
+    'social_django',
     'quiz',
     'multichoice',
     'true_false',
@@ -76,7 +80,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+LOGIN_REDIRECT_URL = '/applicants/profile/'
 ROOT_URLCONF = 'stagium.urls'#
 
 TEMPLATES = [

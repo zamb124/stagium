@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 from applicants import views
 
 urlpatterns = [
+    path('profile/', views.profile_valid, name='profile'),
     path('profile/<str:id>/', views.profile, name='profile'),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -23,6 +23,7 @@ def login(request): # Вход в приложение
                 return HttpResponseRedirect(next)
             except:
                 # Перенаправление на "правильную" страницу
+                a=1
                 return HttpResponseRedirect('/applicants/profile/%s/' % user.pk)
         else:
             # Отображение страницы с ошибкой

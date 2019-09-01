@@ -26,5 +26,6 @@ urlpatterns = [
     path('logout/', main_view.logout, name='logout'),
     path('applicants/', include('applicants.urls')),
     path('quiz/', include('quiz.urls')),
+    path('social/', include('social_django.urls')),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
