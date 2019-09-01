@@ -22,5 +22,6 @@ from applicants import views
 urlpatterns = [
     path('profile/', views.profile_valid, name='profile'),
     path('profile/<str:id>/', views.profile, name='profile'),
+    path('profile/<str:id>/details', views.profile, name='profile-details'),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

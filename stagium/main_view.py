@@ -5,10 +5,9 @@ from django.contrib.auth.models import User
 from django.http.response import HttpResponseRedirect, HttpResponse
 
 # Create your views here.
+
 def index(request):##
-    a=2
     context = {}
-    context.update({'a': a})
     return render(request, 'index.html', context)
 
 def login(request): # Вход в приложение

@@ -13,7 +13,7 @@ from essay.models import Essay_Question
 
 class QuizMarkerMixin(object):
     @method_decorator(login_required)
-    @method_decorator(permission_required('quiz.view_sittings'))
+    #@method_decorator(permission_required('quiz.view_sittings'))#TODO: Я хз как сделать пока правильно
     def dispatch(self, *args, **kwargs):
         return super(QuizMarkerMixin, self).dispatch(*args, **kwargs)
 
@@ -99,10 +99,11 @@ class QuizMarkingList(QuizMarkerMixin, SittingFilterTitleMixin, ListView):
     model = Sitting
 
     def get_queryset(self):
-        queryset = super(QuizMarkingList, self).get_queryset()\
-                                               .filter(complete=True)
+        queryset = super(QuizMarkingList, self).get_queryset().filter(complete=True)
 
         user_filter = self.request.GET.get('user_filter')
+        if not self.request.user.is_staff:  #TODO: что бы не выдавал результат не своих тестов нужно более элегантно
+            user_filter = self.request.user.username
         if user_filter:
             queryset = queryset.filter(user__username__icontains=user_filter)
 
