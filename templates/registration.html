@@ -35,21 +35,32 @@
         <div class="wrap-login100">
             <div class="login100-form-title" style="background-image: url({% static 'images/bg-01.jpg' %});">
 					<span class="login100-form-title-1">
-						Sign In to Stagium
+						Регистрация
 					</span>
             </div>
 
             <form method="POST" class="login100-form validate-form">
             {% csrf_token %}
-                <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+
+                <div class="wrap-input100 validate-input m-b-26" data-validate="Email обязателен">
                     <span class="label-input100">Пользователь</span>
-                    <input class="input100" type="text" name="login" placeholder="Введите логин(email)">
+                    <input class="input100" type="text" name="login" placeholder="Введите email">
+                    <span class="focus-input100"></span>
+                </div>
+            <div class="wrap-input100 validate-input m-b-26" data-validate="Имя обязательно">
+                    <span class="label-input100">Имя</span>
+                    <input class="input100" type="text" name="name" placeholder="Ваше имя">
                     <span class="focus-input100"></span>
                 </div>
 
-                <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                <div class="wrap-input100 validate-input m-b-18" data-validate="Пароль обязателен">
                     <span class="label-input100">Пароль</span>
-                    <input class="input100" type="password" name="pass" placeholder="Введите пароль">
+                    <input class="input100" type="password" name="pass" placeholder="Придумайте пароль">
+                    <span class="focus-input100"></span>
+                </div>
+            <div class="wrap-input100 validate-input m-b-18" data-validate="Обязательное поле">
+                    <span class="label-input100">Повторите пароль</span>
+                    <input class="input100" type="password" name="pass_again" placeholder="Посторите пароль">
                     <span class="focus-input100"></span>
                 </div>
 
@@ -85,7 +96,7 @@
 
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn">
-                        Войти
+                        Зарегистрироваться
                     </button>
                     <div class="row">
                         <div class="col-6"></div>

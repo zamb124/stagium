@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "wrapper_profile.html" %}
 {% load i18n %}
 
 {% load quiz_tags %}
@@ -9,7 +9,7 @@
 {% block content %}
 <section class="content-header">
         <h1>
-            <h2>{% trans "List of quizzes" %}</h2>
+            <h2>{% trans "Question Category Scores" %}</h2>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Домой</a></li>
@@ -23,13 +23,13 @@
                     <div class="box-header with-border">
                         <i class="fa fa-warning"></i>
 
-                        <h3 class="box-title">Доступные тесты</h3>
+                        <h3 class="box-title">{% trans "Question Category Scores" %}</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
   {% if cat_scores %}
 
-  <h1>{% trans "Question Category Scores" %}</h1>
+  <h1></h1>
 
   <table class="table table-bordered table-striped">
 
@@ -102,6 +102,13 @@
   {% endif %}
 
                     </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </section>
+                        </div>
                     <!-- /.box-body -->
                 </div>
                 <!-- /.box -->

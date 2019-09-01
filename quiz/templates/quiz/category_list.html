@@ -1,18 +1,44 @@
-{% extends 'base.html' %}
+{% extends 'wrapper_profile.html' %}
 {% load i18n %}
 {% block title %}{% trans "All Quizzes" %}{% endblock %}
 
 {% block content %}
-<h2>{% trans "Category list" %}</h2>
+    <section class="content-header">
+        <h1>
+            <h2>{% trans "List of quizzes" %}</h2>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Домой</a></li>
+            <li class="active">{% trans "Category list" %}</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <i class="fa fa-warning"></i>
 
-<ul>
-  {% for cat in category_list %}
-  <li>
-	<a href="{% url 'quiz_category_list_matching' category_name=cat.category %}">
-	  {{ cat.category }}
-	</a>
-  </li>
-  {% endfor %}
-</ul>
+                        <h3 class="box-title">Доступные тесты</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <h2></h2>
 
+                        <ul>
+                            {% for cat in category_list %}
+                                <li>
+                                    <a href="{% url 'quiz_category_list_matching' category_name=cat.category %}">
+                                        {{ cat.category }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </section>
 {% endblock %}
