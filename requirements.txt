@@ -1,0 +1,6 @@
+Django==2.2.4
+django-autocomplete-light==3.4.1
+django-tables2==2.1.0
+pyrfc==1.9.96
+pytz==2019.2
+sqlparse==0.3.0
